@@ -47,7 +47,7 @@
         
         self.menuTitle = [[UILabel alloc] initWithFrame:frame];
         self.menuTitle.text = title;
-        self.menuTitle.textColor = [UINavigationBar appearance].titleTextAttributes[NSForegroundColorAttributeName];
+        self.menuTitle.textColor = self.titleColor ? self.titleColor : [UINavigationBar appearance].titleTextAttributes[NSForegroundColorAttributeName];
         self.menuTitle.textAlignment = NSTextAlignmentCenter;
         self.menuTitle.font = self.configuration.cellTextLabelFont;
         [self.menuButton addSubview:self.menuTitle];
@@ -75,6 +75,13 @@
     }
     return self;
 }
+
+- (void)hide {
+    if(self.isShown){
+        [self menuButtonTapped:nil];
+    }
+}
+
 
 - (void)layoutSubviews
 {
@@ -190,8 +197,14 @@
     self.isShown = !self.isShown;
     if (self.isShown) {
         [self showMenu];
+        if(self.menuShowHandler){
+            self.menuShowHandler();
+        }
     } else {
         [self hideMenu];
+        if(self.menuHideHandler){
+            self.menuHideHandler();
+        }
     }
 }
 

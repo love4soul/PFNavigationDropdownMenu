@@ -19,11 +19,16 @@
 @property (nonatomic, assign) CGFloat arrowPadding;
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 @property (nonatomic, strong) UIColor *maskBackgroundColor;
+@property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, assign) CGFloat maskBackgroundOpacity;
 @property (nonatomic, copy) void(^didSelectItemAtIndexHandler)(NSUInteger indexPath);
-
+@property (nonatomic, copy) void(^menuShowHandler)();
+@property (nonatomic, copy) void(^menuHideHandler)();
+@property (nonatomic, assign, readonly) BOOL isShown;
 - (instancetype)initWithFrame:(CGRect)frame
                         title:(NSString *)title
                         items:(NSArray *)items
                 containerView:(UIView *)containerView;
+
+- (void)hide;
 @end
