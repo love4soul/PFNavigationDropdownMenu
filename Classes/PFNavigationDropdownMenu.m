@@ -67,7 +67,8 @@
         self.tableView.selectRowAtIndexPathHandler = ^(NSUInteger indexPath){
             __strong typeof(weakSelf) strongSelf = weakSelf;
             strongSelf.didSelectItemAtIndexHandler(indexPath);
-            [strongSelf setMenuTitleText:items[indexPath]];
+            PFDataItem *item = items[indexPath];
+            [strongSelf setMenuTitleText:item.title];
             [strongSelf hideMenu];
             strongSelf.isShown = NO;
             [strongSelf layoutSubviews];

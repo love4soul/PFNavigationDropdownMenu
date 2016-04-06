@@ -59,7 +59,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PFTableViewCell *cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2
+    PFTableViewCell *cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                                    reuseIdentifier:@"Cell"
                                                      configuration:self.configuration];
     PFDataItem *item = self.items[indexPath.row];

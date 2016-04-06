@@ -25,15 +25,17 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.textLabel.textAlignment = NSTextAlignmentLeft;
         self.textLabel.textColor = self.configuration.cellTextLabelColor;
+        self.detailTextLabel.textColor = self.textLabel.textColor;
         self.textLabel.font = self.configuration.cellTextLabelFont;
+        self.detailTextLabel.font = self.configuration.cellTextLabelFont;
         self.textLabel.frame = CGRectMake(20, 0, self.cellContentFrame.size.width, self.cellContentFrame.size.height);
         
         // Checkmark icon
-        self.checkmarkIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.cellContentFrame.size.width - 50, (self.cellContentFrame.size.height - 30)/2, 30, 30)];
-        self.checkmarkIcon.hidden = YES;
-        self.checkmarkIcon.image = self.configuration.checkMarkImage;
-        self.checkmarkIcon.contentMode = UIViewContentModeScaleAspectFill;
-        [self.contentView addSubview:self.checkmarkIcon];
+        //self.checkmarkIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.cellContentFrame.size.width - 50, (self.cellContentFrame.size.height - 30)/2, 30, 30)];
+        //self.checkmarkIcon.hidden = YES;
+        //self.checkmarkIcon.image = self.configuration.checkMarkImage;
+        //self.checkmarkIcon.contentMode = UIViewContentModeScaleAspectFill;
+        //[self.contentView addSubview:self.checkmarkIcon];
         
         // Separator for cell
         PFTableCellContentView *separator = [[PFTableCellContentView alloc] initWithFrame:self.cellContentFrame];
