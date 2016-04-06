@@ -8,6 +8,7 @@
 
 #import "PFTableView.h"
 #import "PFTableViewCell.h"
+#import "PFDataItem.h"
 
 @interface PFTableView ()
 @property (nonatomic, strong) NSArray *items;
@@ -16,7 +17,7 @@
 
 
 @implementation PFTableView
-- (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items configuration:(PFConfiguration *)configuration
+- (instancetype)initWithFrame:(CGRect)frame items:(NSArray <PFDataItem *>*)items configuration:(PFConfiguration *)configuration
 {
     self = [super initWithFrame:frame style:UITableViewStylePlain];
     if (self) {
@@ -58,10 +59,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PFTableViewCell *cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+    PFTableViewCell *cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2
                                                    reuseIdentifier:@"Cell"
                                                      configuration:self.configuration];
-    cell.textLabel.text = self.items[indexPath.row];
+    PFDataItem *item = self.items[indexPath.row];
+    cell.textLabel.text = item.title;
+    cell.detailTextLabel.text = item.detail;
     if (indexPath.row == self.selectedIndexPath) {
         cell.checkmarkIcon.hidden = NO;
     } else {

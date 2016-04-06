@@ -8,6 +8,7 @@
 
 #import "PFNavigationDropdownMenu.h"
 #import "PFTableView.h"
+#import "PFDataItem.h"
 
 @interface PFNavigationDropdownMenu()
 @property (nonatomic, strong) UIView *tableContainerView;
@@ -27,7 +28,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
                         title:(NSString *)title
-                        items:(NSArray *)items
+                        items:(NSArray <PFDataItem *>*)items
                 containerView:(UIView *)containerView
 {
     self = [super initWithFrame:frame];
@@ -47,7 +48,7 @@
         
         self.menuTitle = [[UILabel alloc] initWithFrame:frame];
         self.menuTitle.text = title;
-        self.menuTitle.textColor = self.titleColor ? self.titleColor : [UINavigationBar appearance].titleTextAttributes[NSForegroundColorAttributeName];
+        self.menuTitle.textColor = self.tintColor ? self.tintColor : [UINavigationBar appearance].titleTextAttributes[NSForegroundColorAttributeName];
         self.menuTitle.textAlignment = NSTextAlignmentCenter;
         self.menuTitle.font = self.configuration.cellTextLabelFont;
         [self.menuButton addSubview:self.menuTitle];

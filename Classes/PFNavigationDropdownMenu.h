@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class PFDataItem;
+
 @interface PFNavigationDropdownMenu : UIView
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, strong) UIColor *cellBackgroundColor;
@@ -27,7 +29,7 @@
 @property (nonatomic, assign, readonly) BOOL isShown;
 - (instancetype)initWithFrame:(CGRect)frame
                         title:(NSString *)title
-                        items:(NSArray *)items
+                        items:(NSArray <PFDataItem *>*)items
                 containerView:(UIView *)containerView;
 
 - (void)hide;
